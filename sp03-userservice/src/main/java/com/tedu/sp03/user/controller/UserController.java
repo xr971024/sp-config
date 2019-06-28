@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/{userId}" ,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping("/{userId}") 
 	public JsonResult<User> getUser(@PathVariable Integer userId) {
 		log.info("get user, userId="+userId);
 		User u = userService.getUser(userId);
