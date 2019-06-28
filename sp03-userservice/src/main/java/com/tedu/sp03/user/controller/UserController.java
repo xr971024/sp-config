@@ -1,8 +1,10 @@
 package com.tedu.sp03.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tedu.sp01.pojo.User;
@@ -18,7 +20,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/{userId}")
+	@RequestMapping(value="/{userId}" ,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public JsonResult<User> getUser(@PathVariable Integer userId) {
 		log.info("get user, userId="+userId);
 		User u = userService.getUser(userId);
